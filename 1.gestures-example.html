@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="box" style="width:100px;height:100px;border: 1px solid #000"></div>
+
+  <script type="module">
+
+    const box = document.querySelector('.box')
+  
+    const o = {
+      startX: 0,
+      startY: 0,
+      previousX: 0,
+      previousY: 0,
+      currentX: 0,
+      currentY: 0,
+    }
+  
+    function step() {
+      if (o.previousX !== o.currentX || o.previousY !== o.currentY) {
+        box.style.transform = `translate(${o.currentX - o.startX}px, ${o.currentY - o.startY}px)`
+        o.previousX = o.currentX
+        o.previousY = o.currentY
+      }
+  
+      requestAnimationFrame(step)
+    }
+  
+    box.addEventListener('touchstart', (e) => {
+      e.preventDefault()
+      o.startX = e.touches[0].clientX
+      o.startY = e.touches[0].clientY
+      box.style.transition = ''
+      requestAnimationFrame(step)
+    })
+  
+    box.addEventListener('touchmove', (e) => {
+      e.preventDefault()
+      o.currentX = e.touches[0].clientX
+      o.currentY = e.touches[0].clientY
+    })
+  
+    box.addEventListener('touchend', (e) => {
+      box.style.transition = '.3s transform ease'
+      box.style.transform = 'translate(0px, 0px)'
+      o.startX = 0
+      o.startY = 0
+      o.previousX = 0
+      o.previousY = 0
+      o.currentX = 0
+      o.currentY = 0
+    })
+  
+  </script>
+</body>
+
+</html>

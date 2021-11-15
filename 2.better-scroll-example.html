@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .wrapper {
+      width: 300px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .content>div {
+      height: 200px;
+      background-color: #f5f5f5;
+      border: 1px dashed #000;
+    }
+  </style>
+  <script src="https://cdn.bootcdn.net/ajax/libs/better-scroll/2.4.1/better-scroll.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content">
+      <div>content1</div>
+      <div>content2</div>
+      <div>content3</div>
+      <div>content4</div>
+      <div>content5</div>
+      <div>content6</div>
+      <div>content7</div>
+      <div>content8</div>
+    </div>
+
+    <script>
+      new BetterScroll.default(document.querySelector('.wrapper'), { scrollY: true, })
+    </script>
+
+</body>
+
+</html>
