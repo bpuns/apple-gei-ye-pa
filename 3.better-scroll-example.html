@@ -18,10 +18,11 @@
 
     import isPowerLowMode from './isPowerLowMode.js'
 
+    // 切换刷新率
     window.switchMode = async function () {
       const detection = await isPowerLowMode()
       if (detection.powerLowMode) {
-        detection.close()
+        detection.smooth()
       }
     }
 

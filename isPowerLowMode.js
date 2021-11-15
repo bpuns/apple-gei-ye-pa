@@ -28,7 +28,7 @@ export default async function () {
     if (await isPowerLowCase()) {
       return {
         powerLowMode: true,
-        close() {
+        smooth() {
           const b = document.createElement('div')
           b.style.pointerEvents = 'none'
           b.style.opacity = '0'
@@ -54,7 +54,7 @@ export default async function () {
 
   return {
     powerLowMode: false,
-    close() { }
+    smooth() { }
   }
 
 }
